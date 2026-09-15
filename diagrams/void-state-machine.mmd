@@ -1,0 +1,15 @@
+stateDiagram-v2
+  [*] --> Open
+  Open --> Asked: need is stated
+  Open --> Offered: capability is offered
+  Asked --> Connected: provider found
+  Offered --> Connected: requester found
+  Asked --> Open: no match yet
+  Connected --> InProgress: both choose to proceed
+  InProgress --> Completed: useful help delivered
+  InProgress --> Closed: stop, unsafe, or unsuitable
+  Completed --> Shared: optional result sharing
+  Completed --> [*]
+  Shared --> Replicated: optional adaptation
+  Replicated --> Open: new local interaction
+  Closed --> [*]

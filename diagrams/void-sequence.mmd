@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant Q as Requester
+  participant C as Community/space
+  participant V as Provider
+  Q->>C: Ask for useful help
+  C-->>Q: Acknowledge or expose request
+  C->>V: Connect or surface request (optional)
+  V-->>Q: Offer a possible response
+  Q->>V: Choose whether to proceed
+  V->>Q: Provide help
+  Q-->>C: Share result only if desired
+  C-->>C: Learn and adapt locally

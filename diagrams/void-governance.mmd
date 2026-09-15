@@ -1,0 +1,12 @@
+graph TB
+  R[Reference repository] -->|documents and proposes| P[Portable principles]
+  P --> A[Independent community A]
+  P --> B[Independent community B]
+  P --> C[Independent implementation C]
+  A -->|local rules| A1[Local governance]
+  B -->|local rules| B1[Local governance]
+  C -->|alternative tools| C1[Alternative implementation]
+  A -. discussion / disagreement / fork .-> B
+  B -. adaptation .-> C
+  R -. no ownership or certification .-> A
+  R -. no ownership or certification .-> B

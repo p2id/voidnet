@@ -1,0 +1,24 @@
+flowchart TB
+  subgraph Shared[Shared portable layer]
+    M[Manifesto: why]
+    P[Principles: invariants]
+    T[Protocol: compatibility description]
+  end
+  subgraph Local[Independent local layers]
+    C1[Community A\nlocal rules + tools]
+    C2[Community B\nlocal rules + tools]
+    C3[Community C\nlocal rules + tools]
+  end
+  subgraph Enablement[Activation and replication]
+    CH[Challenge]
+    LK[Launch kit]
+  end
+  M --> P --> T
+  T --> C1
+  T --> C2
+  T --> C3
+  CH --> LK --> C1
+  LK --> C2
+  LK --> C3
+  C1 -. fork / adapt .-> C2
+  C2 -. fork / adapt .-> C3

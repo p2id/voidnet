@@ -1,0 +1,17 @@
+flowchart TB
+  I[VOID open idea]
+  P[Principles]
+  PR[Protocol v0.1]
+  A[Action: give / ask / help / start]
+  L[Launch kit]
+  C[Independent communities]
+  R[Results and learning]
+  F[Forks and adaptations]
+  I --> P --> PR
+  PR --> A
+  A --> L
+  L --> C
+  C --> R
+  R --> F
+  F --> C
+  C -. preserves core invariants .-> PR

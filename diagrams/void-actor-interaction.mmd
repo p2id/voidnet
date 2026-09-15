@@ -1,0 +1,9 @@
+graph LR
+  Q[Requester] -- asks --> C[Community or space]
+  C -- connects --> V[Provider]
+  V -- gives --> H[Help]
+  Q -- may receive --> H
+  H -- produces --> R[Result]
+  Q -- may share --> L[Learning]
+  V -- may start --> N[New community]
+  N -- remains independent --> C
