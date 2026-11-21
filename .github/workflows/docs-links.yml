@@ -1,23 +1,28 @@
-name: Documentation links
+name: Markdown links
 
 on:
   push:
     branches: [main]
   pull_request:
+    branches: [main]
 
 permissions:
   contents: read
 
 jobs:
-  markdown-links:
-    name: Check local Markdown links
+  links:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          python-version: "3.12"
-      - name: Validate local links
-        run: python scripts/check_markdown_links.py
+          persist-credentials: false
+
+      - name: Check local Markdown links
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --offline --include-fragments --no-progress --verbose './**/*.md'
+          fail: true
+          failIfEmpty: true
+          token: ""
